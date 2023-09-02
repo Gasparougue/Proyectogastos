@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Users</title>
+  <style>
+    body {
+      background-image: url('static/fondo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: #333;
+    }
+    
+    h1 {
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      background-color: black;
+      color: white;
+      position: absolute;
+      top: 0;
+     left: 0;
+      right: 0;
+    }
+    
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    margin: 80px auto 0;
+    padding: 10px;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+
+  th {
+    background-color: #eee;
+  }
+  
+  tr {
+    background-color: #f2f2f2;
+  }
+  
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #delete {
+    margin-left: 10px;
+  }
+  </style>
+</head>
+<body>
+  <h1>Usuarios</h1>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Precio (en dólares)</th>
+      <th>Fecha</th>
+    </tr>
+    <% usuario.forEach(usuario => { %>
+      <tr>
+        <td><%= usuario.ID %></td>
+        <td><%= usuario.nombre %></td>
+        <td><%= usuario.precio %></td>
+        <td><%= usuario.fecha %></td>
+        <td class="icon">
+        <a href="/actualizar/<%= usuario.ID%>"><img src="static/update.png" width="30"></a>
+        <a href="/borrar/<%= usuario.ID%>"><img src="static/delete.png" width="30" id="delete"></a>
+       </td>
+      </tr>
+    <% }); %>
+  </table>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Eliminar Cliente</title>
+  <style>
+    body {
+      background-image: url('static/fondo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    
+    h1 {
+      text-align: center;
+      margin: 50px 0;
+      padding: 20px;
+      background-color: black;
+      color: white;
+    }
+    
+    p {
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 50px;
+    }
+    
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    input[type="submit"] {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease-in-out;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <h1>Eliminar Cliente</h1>
+  <p>¿Desea Eliminar Registro?</p>
+  <form method="POST" action="/borrar/<%=usuario.ID%>">
+    <input type="submit" value="Eliminar">
+  </form>
+</body>
+<script type="text/javascript">
+	const Id = '<%=usuario.ID%>';
+
+fetch(`/borrar/${Id}`, { method: 'POST' })
+  .then(response => {
+    if (response.ok) {
+      console.log('Usuario eliminado con éxito');
+    } else {
+      throw new Error('Error al eliminar el Usuario');
+    }
+  })
+  .catch(error => {
+    console.error(error.message);
+  });
+
+</script>
+</html>
