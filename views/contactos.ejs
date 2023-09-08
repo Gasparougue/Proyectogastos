@@ -11,6 +11,7 @@
 <body>
     <div id="arriba">
         <h2>Registre aqui sus gastos</h2>
+        <button a="/" id="return">Regresar</button>
     </div>
 <div class="container">
     <form id="clienteForm" action="/contactos" method="post">
@@ -26,6 +27,7 @@
   
       <input type="submit" value="Enviar">
     </form>
+    
   </div>
 </body>
 <script type="text/javascript"> 
@@ -78,6 +80,7 @@
       .catch(error => {
         console.log('Error al obtener los clientes:', error);
       });
+  
   
 </script>
 </html>

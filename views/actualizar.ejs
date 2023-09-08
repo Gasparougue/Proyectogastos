@@ -131,12 +131,12 @@ updateForm.addEventListener('submit', (event) => {
   })
     .then(response => {
       if (response.ok) {
-        // El cliente se actualizó correctamente
-        console.log('Cliente actualizado correctamente');
+        //Se actualizó correctamente
+        console.log('Gasto actualizado correctamente');
         // Redirigir a la página principal
         window.location.href = '/';
       } else {
-        throw new Error('Error al actualizar el cliente');
+        throw new Error('Error al actualizar');
       }
     })
     .catch(error => {

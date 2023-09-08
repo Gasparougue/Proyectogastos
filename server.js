@@ -144,7 +144,7 @@ else if (method === 'POST' && url === '/usuario') {
     } catch (error) {
       console.error(error.message);
       res.writeHead(400, { 'Content-Type': 'text/html' });
-      res.end('Formato de datos JSON inválido randy');
+      res.end('Formato de datos JSON inválido');
     }
   });
   } 
