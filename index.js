@@ -4,6 +4,12 @@ const camino = require('path');
 const sql3 = require('sqlite3').verbose();
 const ejs = require('ejs');
 
+const port = process.env.PORT || 3000;
+server.listen(port, () => {
+  console.log(`Servidor escuchando en el puerto ${port}`);
+});
+
+
 const basedatosN = camino.join(__dirname,'db','usuario.db');
 const db = new sql3.Database(basedatosN,err=>{
   if(err) return console.error(err.message);
@@ -225,9 +231,4 @@ else if (method === 'POST' && url === '/usuario') {
     res.writeHead(404, { 'Content-Type': 'text/html' });
     res.end('404 - Ruta no encontrada');
   }
-});
-
-const port = 3000;
-server.listen(port, () => {
-  console.log(`Servidor escuchando en el puerto ${port}`);
 });
